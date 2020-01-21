@@ -62,7 +62,6 @@ void GameManager::Run() {
 void GameManager::HandleEvents() {
 	SDL_Event Event;
 	while (SDL_PollEvent(&Event)){
-		printf("%d\n", Event.type);
 		if (Event.type == SDL_QUIT) {
 			isRunning = false;
 		}
