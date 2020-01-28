@@ -65,35 +65,6 @@ void GameManager::HandleEvents() {
 		if (Event.type == SDL_QUIT) {
 			isRunning = false;
 		}
-		if (Event.type == SDL_KEYDOWN) {
-			if (Event.key.keysym.sym == SDLK_d) {
-				currentScene->MoveState = 1;
-			}
-			if (Event.key.keysym.sym == SDLK_a) {
-				currentScene->MoveState = 2;
-			}
-			if (Event.key.keysym.sym == SDLK_w) {
-				currentScene->MoveState = 3;
-			}
-			if (Event.key.keysym.sym == SDLK_s) {
-				currentScene->MoveState = 4;
-			}
-			if (Event.key.keysym.sym == SDLK_l) {
-				currentScene->MoveState = 5;
-			}
-			if (Event.key.keysym.sym == SDLK_j) {
-				currentScene->MoveState = 6;
-			}
-			if (Event.key.keysym.sym == SDLK_i) {
-				currentScene->MoveState = 7;
-			}
-			if (Event.key.keysym.sym == SDLK_k) {
-				currentScene->MoveState = 8;
-			}
-		}
-		if (Event.type == SDL_KEYUP) {
-			currentScene->MoveState = 0;
-		}
 		
 	}
 

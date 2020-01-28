@@ -3,6 +3,7 @@
 
 #include "MMath.h"
 #include "Scene.h"
+#include "Player.h"
 #include <SDL.h>
 
 using namespace MATH;
@@ -12,6 +13,9 @@ private:
 	Matrix4 projection;
 	float timePassed = 0.0f;
 	int i = 0;
+	SDL_Event Event;
+	Player player;
+
 	
 
 	

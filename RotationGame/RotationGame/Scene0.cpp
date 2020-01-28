@@ -25,36 +25,10 @@ void Scene0::OnDestroy() {
 }
 
 void Scene0::Update(const float time) {
-	/// This is the physics in the x dimension only
-
-
-	if (MoveState == 1) {
-		
+	while (SDL_PollEvent(&Event)) {
+		player.HandleEvents(Event);
 	}
-	else if (MoveState == 2) {
-		
-	}
-	else if (MoveState == 3) {
-		
-	}
-	else if (MoveState == 4) {
-		
-	}
-	else if (MoveState == 5) {
-		
-	}
-	else if (MoveState == 6) {
-		
-	}
-	else if (MoveState == 7) {
-		
-	}
-	else if (MoveState == 8) {
-		
-	}
-	else if (MoveState == 0) {
-
-	}
+	player.Update(time);
 }
 
 void Scene0::Render() {
