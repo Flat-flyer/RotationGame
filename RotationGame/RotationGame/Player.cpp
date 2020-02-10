@@ -44,6 +44,15 @@ void Player::Update(const float deltaTime)
 	if (MoveState == 0) {
 		this->vel = Vec3(0.0f, 0.0f, 0.0f);
 	}
+	if (MoveState == 3) {
+		this->vel = Vec3(0.0f, 20.0f, 0.0f);
+	}
+	if (MoveState == 4) {
+		this->vel = Vec3(10.0f, 20.0f, 0.0f);
+	}
+	if (MoveState == 5) {
+		this->vel = Vec3(-10.0f, 20.0f, 0.0f);
+	}
 }
 
 void Player::Render() const
@@ -61,10 +70,20 @@ void Player::HandleEvents(const SDL_Event& event)
 		}
 		if (event.key.keysym.sym == SDLK_w) {
 			MoveState = 3;
+			if (event.key.keysym.sym == SDLK_d) {
+				MoveState = 4;
+			}
+			if (event.key.keysym.sym == SDLK_a) {
+				MoveState = 5;
+			}
 		}
-		if (event.key.keysym.sym == SDLK_s) {
-			MoveState = 4;
+		if (event.key.keysym.sym == SDLK_q) {
+			RotateLevelLeft = true;
 		}
+		if (event.key.keysym.sym == SDLK_e) {
+			RotateLevelRight = true;
+		}
+
 	}
 	if (event.type == SDL_KEYUP) {
 		MoveState = 0;

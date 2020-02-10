@@ -14,6 +14,8 @@ public:
 	void Update(const float deltaTime);
 	void Render()const;
 	void HandleEvents(const SDL_Event& event);
+	bool RotateLevelLeft;
+	bool RotateLevelRight;
 
 private:
 	float MoveState;
