@@ -16,8 +16,8 @@ private:
 	int i = 0;
 	SDL_Event Event;
 	MapOne* map;
-	Player player;
-
+	//Player player;
+	class Player* playerSprite;
 	
 
 	

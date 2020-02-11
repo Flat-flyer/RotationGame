@@ -2,6 +2,7 @@
 #define PLAYER_H
 #include "Physics.h"
 #include "GameObject.h"
+#include <SDL.h>
 
 class Player:public GameObject, public Physics 
 {
@@ -16,6 +17,8 @@ public:
 	void HandleEvents(const SDL_Event& event);
 	bool RotateLevelLeft;
 	bool RotateLevelRight;
+
+	SDL_Surface* thePlayer;
 
 private:
 	float MoveState;
