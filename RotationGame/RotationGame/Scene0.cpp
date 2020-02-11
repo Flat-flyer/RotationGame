@@ -17,11 +17,23 @@ bool Scene0::OnCreate() {
 	Matrix4 ndc = MMath::viewportNDC(w, h);
 	Matrix4 ortho = MMath::orthographic(0.0, 200.0f, 0.0f, 100.0f,0.0f,1.0f);
 	projection =  ndc * ortho;
+
+	map = new MapOne;			// adding Map to OnCreate with position
+	map->image = SDL_LoadBMP("mapone.bmp");
+
+	if (map->image == nullptr) {
+		return false;
+	}
+
+	map->position.x = 15.0f;
+	map->position.y = 90.0f;
+	map->position.z = 0.0f;
 	
 	return true;
 }
 
 void Scene0::OnDestroy() {
+	delete map;
 }
 
 void Scene0::Update(const float time) {
@@ -33,11 +45,22 @@ void Scene0::Update(const float time) {
 
 void Scene0::Render() {
 	
+	Vec3 screenCoords = projection * map->position;
+	
+	SDL_Rect rect;
+	//SDL_Rect rect2;
+	rect.h = map->image->h;
+	rect.w = map->image->w;
+	rect.x = screenCoords.x; 
+	rect.y = screenCoords.y; 
+
 
 	SDL_Surface* screenSurface = SDL_GetWindowSurface(window);
 
 	SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 255.0f,255.0f,255.0f));		//changed color to white from blue.
 
+	SDL_BlitSurface(map->image, nullptr, screenSurface, &rect);
+	
 	SDL_UpdateWindowSurface(window);
 
 
