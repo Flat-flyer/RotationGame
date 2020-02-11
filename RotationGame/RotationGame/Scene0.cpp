@@ -19,7 +19,8 @@ bool Scene0::OnCreate() {
 	projection =  ndc * ortho;
 
 	playerSprite = new Player(Vec3(50.0f, 30.0f, 0.0f), Vec3(0.0, 0.0, 0.0), Vec3(0.0, 0.0, 0.0), 100.0);
-	playerSprite->thePlayer = SDL_LoadBMP("player.bmp");
+	playerSprite->thePlayer = IMG_Load("test.png");
+	
 
 	map = new MapOne;			// adding Map to OnCreate with position
 	map->image = SDL_LoadBMP("mapone.bmp");
