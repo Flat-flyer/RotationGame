@@ -61,32 +61,32 @@ void Player::Render() const
 }
 void Player::HandleEvents(const SDL_Event& event)
 {
-	if (event.type == SDL_KEYDOWN) {
-		if (event.key.keysym.sym == SDLK_d) {
-			MoveState = 1;
-		}
-		if (event.key.keysym.sym == SDLK_a) {
-			MoveState = 2;
-		}
-		if (event.key.keysym.sym == SDLK_w) {
-			MoveState = 3;
+		if (event.type == SDL_KEYDOWN) {
 			if (event.key.keysym.sym == SDLK_d) {
-				MoveState = 4;
+				MoveState = 1;
 			}
 			if (event.key.keysym.sym == SDLK_a) {
-				MoveState = 5;
+				MoveState = 2;
 			}
-		}
-		if (event.key.keysym.sym == SDLK_q) {
-			RotateLevelLeft = true;
-		}
-		if (event.key.keysym.sym == SDLK_e) {
-			RotateLevelRight = true;
-		}
+			if (event.key.keysym.sym == SDLK_w) {
+				MoveState = 3;
+				if (event.key.keysym.sym == SDLK_d) {
+					MoveState = 4;
+				}
+				if (event.key.keysym.sym == SDLK_a) {
+					MoveState = 5;
+				}
+			}
+			if (event.key.keysym.sym == SDLK_q) {
+				RotateLevelLeft = true;
+			}
+			if (event.key.keysym.sym == SDLK_e) {
+				RotateLevelRight = true;
+			}
 
-	}
-	if (event.type == SDL_KEYUP) {
-		MoveState = 0;
-	}
+		}
+		if (event.type == SDL_KEYUP) {
+			MoveState = 0;
+		}
 
 }

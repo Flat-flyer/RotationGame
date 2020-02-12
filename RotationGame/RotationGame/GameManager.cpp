@@ -65,6 +65,7 @@ void GameManager::HandleEvents() {
 		if (Event.type == SDL_QUIT) {
 			isRunning = false;
 		}
+		currentScene->HandleEvents(Event);
 		
 	}
 

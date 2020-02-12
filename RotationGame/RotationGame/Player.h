@@ -19,6 +19,7 @@ public:
 	bool RotateLevelRight;
 
 	SDL_Surface* thePlayer;
+	SDL_Event Event;
 
 private:
 	float MoveState;
