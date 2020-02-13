@@ -16,7 +16,9 @@ public:
 	~Physics();
 	void Update(const float time);
 	void ApplyForce(Vec3 force);
+	void SetPosition(float posx_, float posy_, float posz_);
 	Vec3 GetPosition();
 	Vec3 GetVelocity();
+	void  SetVelocity(float velx_, float vely_, float velz_);
 };
 #endif

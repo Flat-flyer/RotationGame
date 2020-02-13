@@ -45,11 +45,21 @@ void Physics::ApplyForce(Vec3 force_) {
 	accel.z = force.z / mass;
 
 }
-
+void Physics::SetPosition(float posx_, float posy_, float posz_)
+{
+	pos.x = posx_;
+	pos.y = posy_;
+	pos.z = posz_;
+}
 Vec3 Physics::GetPosition() {
 	return pos;
 }
-
+void Physics::SetVelocity(float velx_, float vely_, float velz_)
+{
+	vel.x = velx_;
+	vel.y = vely_;
+	vel.z = velz_;
+}
 Vec3 Physics::GetVelocity() {
 	return vel;
 }

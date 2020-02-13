@@ -38,22 +38,19 @@ void Player::Update(const float deltaTime)
 	Physics::Update(deltaTime);
 
 	if (MoveState == 0) {
-		this->vel = Vec3(0.0f, 0.0f, 0.0f);
+		SetVelocity(0.0,0.0,0.0);
 	}
 	if (MoveState == 1) {
-		this->vel = Vec3(10.0f, 0.0f, 0.0f);
+		SetVelocity(10.0, 0.0, 0.0);
 	}
 	if (MoveState == 2) {
-		this->vel = Vec3(-10.0f, 0.0f, 0.0f);
+		SetVelocity(-10.0, 0.0, 0.0);
 	}
 	if (MoveState == 3) {
-		this->vel = Vec3(0.0f, 10.0f, 0.0f);
+		SetVelocity(0.0, 10.0, 0.0);
 	}
 	if (MoveState == 4) {
-		this->vel = Vec3(0.0f, -10.0f, 0.0f);
-	}
-	if (MoveState == 5) {
-		this->vel = Vec3(-10.0f, 20.0f, 0.0f);
+		SetVelocity(0.0, -10.0, 0.0);
 	}
 	if (MoveState == 8) {
 		degrees1 += 10;
@@ -100,19 +97,19 @@ switch (event.type) {
 	case SDL_KEYUP:
 		switch (event.key.keysym.sym) {
 		case SDLK_d:
-			if (this->vel.x > 0)
+			if (GetVelocity().x > 0)
 				MoveState = 0;
 			break;
 		case SDLK_a:
-			if (this->vel.x < 0)
+			if (GetVelocity().x < 0)
 				MoveState = 0;
 			break;
 		case SDLK_w:
-			if (this->vel.y > 0)
+			if (GetVelocity().y > 0)
 				MoveState = 0;
 			break;
 		case SDLK_s:
-			if (this->vel.y < 0)
+			if (GetVelocity().y < 0)
 				MoveState = 0;
 			break;
 		default:
