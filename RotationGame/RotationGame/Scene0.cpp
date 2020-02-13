@@ -6,6 +6,8 @@
 Scene0::Scene0(SDL_Window* sdlWindow_){
 	window = sdlWindow_;
 	playerSprite = nullptr;
+	mRender = nullptr;
+	
 }
 
 Scene0::~Scene0(){
@@ -24,6 +26,7 @@ bool Scene0::OnCreate() {
 
 	map = new MapOne;			// adding Map to OnCreate with position
 	map->image = SDL_LoadBMP("mapone.bmp");
+
 
 	if (map->image == nullptr) {
 		return false;
@@ -56,7 +59,11 @@ void Scene0::Render() {
 	rect.w = map->image->w;
 	rect.x = screenCoords.x; 
 	rect.y = screenCoords.y; 
-
+	if (clip != NULL)
+	{
+		rect.w = clip->w;
+		rect.h = clip->h;
+	}
 	Vec3 screenCoords2 = projection * playerSprite->GetPosition();
 	SDL_Rect spritePosition;
 	spritePosition.h = playerSprite->thePlayer->h;
@@ -69,9 +76,9 @@ void Scene0::Render() {
 	SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 255.0f,255.0f,255.0f));		//changed color to white from blue.
 
 	SDL_BlitSurface(map->image, nullptr, screenSurface, &rect);
-
+	SDL_RenderCopyEx(mRender, mTexture, clip, &rect,playerSprite->degrees1 , NULL, SDL_FLIP_NONE);
 	SDL_BlitSurface(playerSprite->thePlayer, NULL, screenSurface, &spritePosition);
-	
+	SDL_RenderPresent(mRender);
 	SDL_UpdateWindowSurface(window);
 
 

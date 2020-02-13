@@ -13,6 +13,7 @@ public:
 	~MapOne();
 	Vec3 position;
 	SDL_Surface* image;
+	float degree; // for rotation.
 };
 #endif // !MAPONE_H
 

@@ -18,7 +18,10 @@ private:
 	MapOne* map;
 	//Player player;
 	class Player* playerSprite;
-	
+
+	SDL_Texture* mTexture;
+	SDL_Renderer* mRender;
+	SDL_Rect* clip;
 
 	
 public:

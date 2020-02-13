@@ -3,6 +3,7 @@
 #include "Physics.h"
 #include "GameObject.h"
 #include <SDL.h>
+#include "MapOne.h"
 
 class Player:public GameObject, public Physics 
 {
@@ -17,7 +18,8 @@ public:
 	void HandleEvents(const SDL_Event& event);
 	bool RotateLevelLeft;
 	bool RotateLevelRight;
-
+	
+	float degrees1;
 	SDL_Surface* thePlayer;
 	SDL_Event Event;
 
