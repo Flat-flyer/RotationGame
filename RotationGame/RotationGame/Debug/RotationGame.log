@@ -1,3 +1,13 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(459,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (SDL_Project.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  Player.cpp
-  RotationGame.vcxproj -> C:\Users\Keshy\Desktop\RotationGame\RotationGame\Debug\RotationGame.exe
+  Scene0.cpp
+C:\Users\vanja\Desktop\RotationGame\RotationGame\RotationGame\Scene0.cpp(60,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\vanja\Desktop\RotationGame\RotationGame\RotationGame\Scene0.cpp(61,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\vanja\Desktop\RotationGame\RotationGame\RotationGame\Scene0.cpp(71,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\vanja\Desktop\RotationGame\RotationGame\RotationGame\Scene0.cpp(72,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\vanja\Desktop\RotationGame\RotationGame\RotationGame\Scene0.cpp(76,87): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\vanja\Desktop\RotationGame\RotationGame\RotationGame\Scene0.cpp(76,80): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+C:\Users\vanja\Desktop\RotationGame\RotationGame\RotationGame\Scene0.cpp(76,73): warning C4244: 'argument': conversion from 'float' to 'Uint8', possible loss of data
+  Timer.cpp
+  Window.cpp
+  Generating Code...
+  RotationGame.vcxproj -> C:\Users\vanja\Desktop\RotationGame\RotationGame\Debug\RotationGame.exe

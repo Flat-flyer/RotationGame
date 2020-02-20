@@ -3,7 +3,7 @@
 
 #include "MMath.h"
 #include "Scene.h"
-#include "MapOne.h"
+#include "Tile.h"
 #include "Player.h"
 #include <SDL.h>
 
@@ -15,7 +15,7 @@ private:
 	float timePassed = 0.0f;
 	int i = 0;
 	SDL_Event Event;
-	MapOne* map;
+	Tile* tile;
 	//Player player;
 	class Player* playerSprite;
 

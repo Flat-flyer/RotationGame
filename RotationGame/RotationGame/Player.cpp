@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "MapOne.h"
+#include "Tile.h"
 Player::Player() :Physics(Vec3(0.0f, 0.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), 0.0f)
 {
 }

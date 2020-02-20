@@ -3,7 +3,7 @@
 #include "Physics.h"
 #include "GameObject.h"
 #include <SDL.h>
-#include "MapOne.h"
+#include "Tile.h"
 
 class Player:public GameObject, public Physics 
 {

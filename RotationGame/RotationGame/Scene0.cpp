@@ -24,23 +24,23 @@ bool Scene0::OnCreate() {
 	playerSprite->thePlayer = IMG_Load("test.png");
 	
 
-	map = new MapOne;			// adding Map to OnCreate with position
-	map->image = SDL_LoadBMP("mapone.bmp");
+	tile = new Tile();			// adding Map to OnCreate with position
+	tile->image = SDL_LoadBMP("mapone.bmp");
 
 
-	if (map->image == nullptr) {
+	if (tile->image == nullptr) {
 		return false;
 	}
 
-	map->position.x = 15.0f;
-	map->position.y = 90.0f;
-	map->position.z = 0.0f;
+	tile->position.x = 15.0f;
+	tile->position.y = 90.0f;
+	tile->position.z = 0.0f;
 	
 	return true;
 }
 
 void Scene0::OnDestroy() {
-	delete map;
+	delete tile;
 }
 
 void Scene0::Update(const float time) {
@@ -51,12 +51,12 @@ void Scene0::Update(const float time) {
 
 void Scene0::Render() {
 	
-	Vec3 screenCoords = projection * map->position;
+	Vec3 screenCoords = projection * tile->position;
 	
 	SDL_Rect rect;
 	//SDL_Rect rect2;
-	rect.h = map->image->h;
-	rect.w = map->image->w;
+	rect.h = tile->image->h;
+	rect.w = tile->image->w;
 	rect.x = screenCoords.x; 
 	rect.y = screenCoords.y; 
 	if (clip != NULL)
@@ -75,7 +75,7 @@ void Scene0::Render() {
 
 	SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 255.0f,255.0f,255.0f));		//changed color to white from blue.
 
-	SDL_BlitSurface(map->image, nullptr, screenSurface, &rect);
+	SDL_BlitSurface(tile->image, nullptr, screenSurface, &rect);
 	SDL_RenderCopyEx(mRender, mTexture, clip, &rect,playerSprite->degrees1 , NULL, SDL_FLIP_NONE);
 	SDL_BlitSurface(playerSprite->thePlayer, NULL, screenSurface, &spritePosition);
 	SDL_RenderPresent(mRender);
