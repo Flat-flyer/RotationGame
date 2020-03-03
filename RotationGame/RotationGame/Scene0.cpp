@@ -20,21 +20,19 @@ bool Scene0::OnCreate() {
 	Matrix4 ortho = MMath::orthographic(0.0, 200.0f, 0.0f, 100.0f,0.0f,1.0f);
 	projection =  ndc * ortho;
 
-	playerSprite = new Player(Vec3(50.0f, 30.0f, 0.0f), Vec3(0.0, 0.0, 0.0), Vec3(0.0, 0.0, 0.0), 100.0);
+	playerSprite = new Player(Vec3(100.0f, 50.0f, 0.0f), Vec3(0.0, 0.0, 0.0), Vec3(0.0, 0.0, 0.0), 100.0);
 	playerSprite->thePlayer = IMG_Load("test.png");
 	
 
-	tile = new Tile();			// adding Map to OnCreate with position
+	tile = new Tile(Vec3(15.0f, 90.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(100.0f, 50.0f, 0.0f));			// adding Map to OnCreate with position
 	tile->image = SDL_LoadBMP("mapone.bmp");
-
 
 	if (tile->image == nullptr) {
 		return false;
 	}
 
-	tile->position.x = 15.0f;
-	tile->position.y = 90.0f;
-	tile->position.z = 0.0f;
+	tile->Rotate(90.0f);
+
 	
 	return true;
 }
@@ -51,7 +49,7 @@ void Scene0::Update(const float time) {
 
 void Scene0::Render() {
 	
-	Vec3 screenCoords = projection * tile->position;
+	Vec3 screenCoords = projection * tile->GetPosition();
 	
 	SDL_Rect rect;
 	//SDL_Rect rect2;
