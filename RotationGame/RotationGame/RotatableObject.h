@@ -13,9 +13,12 @@ class RotatableObject: public GameObject, public Physics
 public:
 	Vec3 PivotPoint;
 	bool RotateObject;
+	float RotationQuadrant;
+	int height;
+	int width;
 	RotatableObject();
 	~RotatableObject();
-	RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPoint_);
+	RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPoint_, float RotationQuadrant_, int height_, int width_);
 	bool OnCreate();
 	void OnDestroy();
 	void Update(const float deltaTime);
