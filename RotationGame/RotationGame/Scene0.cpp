@@ -30,8 +30,8 @@ bool Scene0::OnCreate() {
 	if (tile->image == nullptr) {
 		return false;
 	}
-	tile->height = 100.0f;
-	tile->width = 100.0f;
+	tile->height = 1.0f;
+	tile->width = 1.0f;
 
 	tile->RotateObject = true;
 
@@ -48,6 +48,11 @@ void Scene0::Update(const float time) {
 		//player.HandleEvents(Event);
 		playerSprite->Update(time);
 		tile->Update(time);
+		if (i == 100) {
+			tile->RotateObject = true;
+			i = 0;
+		}
+		i++;
 }
 
 void Scene0::Render() {

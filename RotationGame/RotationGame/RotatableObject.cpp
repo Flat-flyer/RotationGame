@@ -2,6 +2,7 @@
 
 RotatableObject::RotatableObject()
 {
+
 }
 
 RotatableObject::~RotatableObject()
@@ -30,6 +31,7 @@ RotatableObject::RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPo
 
 	height = height_;
 	width = width_;
+	FirstRotation = true;
 }
 
 bool RotatableObject::OnCreate()
@@ -44,6 +46,21 @@ void RotatableObject::OnDestroy()
 void RotatableObject::Update(const float deltaTime)
 {
 	if (RotateObject == true) {
+		if (FirstRotation == false) {
+			if (RotationQuadrant == 4) {
+				pos.y = pos.y - height;
+			}
+			else if (RotationQuadrant == 3) {
+				pos.y = pos.y + height;
+			}
+			else if (RotationQuadrant == 2) {
+				pos.x = pos.x + width;
+				pos.y = pos.y + height;
+			}
+			else {
+				pos.x = pos.x + width;
+			}
+		}
 		Rotate(90.0f);
 		if (RotationQuadrant == 4) {
 			pos.y = pos.y + height;
@@ -61,6 +78,9 @@ void RotatableObject::Update(const float deltaTime)
 		else {
 			pos.x = pos.x - width;
 			RotationQuadrant = 2;
+		}
+		if (FirstRotation == true) {
+			FirstRotation = false;
 		}
 		RotateObject = false;
 	}

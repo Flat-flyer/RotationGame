@@ -13,6 +13,7 @@ class RotatableObject: public GameObject, public Physics
 public:
 	Vec3 PivotPoint;
 	bool RotateObject;
+	bool FirstRotation;
 	float RotationQuadrant;
 	int height;
 	int width;
