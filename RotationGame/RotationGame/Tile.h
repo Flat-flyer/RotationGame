@@ -12,7 +12,7 @@ class Tile : public RotatableObject
 public:
 	Tile();
 	~Tile();
-	Tile(Vec3 pos_, Vec3 vel_, Vec3 pivotPoint_, float RotationQuadrant_, int height_, int width_);
+	Tile(Vec3 pos_, Vec3 vel_, Vec3 pivotPoint_, float RotationQuadrant_);
 	void HandleEvents(const SDL_Event& event);
 	SDL_Surface* image;
 	float degree; // for rotation.

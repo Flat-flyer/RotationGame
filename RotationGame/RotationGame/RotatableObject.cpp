@@ -9,7 +9,7 @@ RotatableObject::~RotatableObject()
 {
 }
 
-RotatableObject::RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPoint_, float RotationQuadrant_, int height_, int width_)
+RotatableObject::RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPoint_, float RotationQuadrant_)
 {
 	pos.x = pos_.x;
 	pos.y = pos_.y;
@@ -28,10 +28,6 @@ RotatableObject::RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPo
 	PivotPoint.z = pivotPoint_.z;
 
 	RotationQuadrant = RotationQuadrant_;
-
-	height = height_;
-	width = width_;
-	FirstRotation = true;
 }
 
 bool RotatableObject::OnCreate()
@@ -45,44 +41,44 @@ void RotatableObject::OnDestroy()
 
 void RotatableObject::Update(const float deltaTime)
 {
-	if (RotateObject == true) {
-		if (FirstRotation == false) {
-			if (RotationQuadrant == 4) {
-				pos.y = pos.y - height;
-			}
-			else if (RotationQuadrant == 3) {
-				pos.y = pos.y + height;
-			}
-			else if (RotationQuadrant == 2) {
-				pos.x = pos.x + width;
-				pos.y = pos.y + height;
-			}
-			else {
-				pos.x = pos.x + width;
-			}
-		}
-		Rotate(90.0f);
+	if (RotateObjectRight == true) {
 		if (RotationQuadrant == 4) {
-			pos.y = pos.y + height;
+			pos.y = pos.y - PivotPoint.y;
 			RotationQuadrant = 1;
 		}
 		else if (RotationQuadrant == 3) {
-			pos.y = pos.y - height;
+			pos.x = pos.x - PivotPoint.x;
 			RotationQuadrant = 4;
 		}
 		else if (RotationQuadrant == 2) {
-			pos.x = pos.x - width;
-			pos.y = pos.y - height;
+			pos.y = pos.y + PivotPoint.y;
 			RotationQuadrant = 3;
 		}
 		else {
-			pos.x = pos.x - width;
+			pos.x = pos.x + PivotPoint.x;
 			RotationQuadrant = 2;
 		}
-		if (FirstRotation == true) {
-			FirstRotation = false;
+		RotateObjectRight = false;
+	}
+
+	if (RotateObjectLeft == true) {
+		if (RotationQuadrant == 1) {
+			pos.y = pos.y + PivotPoint.y;
+			RotationQuadrant = 4;
 		}
-		RotateObject = false;
+		else if (RotationQuadrant == 2) {
+			pos.x = pos.x - PivotPoint.x;
+			RotationQuadrant = 1;
+		}
+		else if (RotationQuadrant == 3) {
+			pos.y = pos.y - PivotPoint.y;
+			RotationQuadrant = 2;
+		}
+		else {
+			pos.x = pos.x + PivotPoint.x;
+			RotationQuadrant = 3;
+		}
+		RotateObjectLeft = false;
 	}
 }
 

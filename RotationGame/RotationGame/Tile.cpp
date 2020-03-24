@@ -10,7 +10,7 @@ Tile::~Tile()
 
 }
 
-Tile::Tile(Vec3 pos_, Vec3 vel_, Vec3 pivotPoint_, float RotationQuadrant_, int height_, int width_)
+Tile::Tile(Vec3 pos_, Vec3 vel_, Vec3 pivotPoint_, float RotationQuadrant_)
 {
 	pos.x = pos_.x;
 	pos.y = pos_.y;
@@ -26,8 +26,6 @@ Tile::Tile(Vec3 pos_, Vec3 vel_, Vec3 pivotPoint_, float RotationQuadrant_, int 
 
 	RotationQuadrant = RotationQuadrant_;
 
-	height = height_;
-	width = width_;
 }
 
 void Tile::HandleEvents(const SDL_Event& event)

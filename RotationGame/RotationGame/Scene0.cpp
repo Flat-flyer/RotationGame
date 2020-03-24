@@ -24,16 +24,12 @@ bool Scene0::OnCreate() {
 	playerSprite->thePlayer = IMG_Load("test.png");
 	
 
-	tile = new Tile(Vec3(15.0f, 90.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(100.0f, 50.0f, 0.0f), 1.0f, 0.0f, 0.0f);			// adding Map to OnCreate with position
+	tile = new Tile(Vec3(15.0f, 90.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(100.0f, 50.0f, 0.0f), 1.0f);			// adding Map to OnCreate with position
 	tile->image = SDL_LoadBMP("mapone.bmp");
 
 	if (tile->image == nullptr) {
 		return false;
 	}
-	tile->height = 1.0f;
-	tile->width = 1.0f;
-
-	tile->RotateObject = true;
 
 	
 	return true;
@@ -47,11 +43,19 @@ void Scene0::Update(const float time) {
 	
 		//player.HandleEvents(Event);
 		playerSprite->Update(time);
-		tile->Update(time);
-		if (i == 100) {
-			tile->RotateObject = true;
-			i = 0;
+		if (i >= 100) {
+			if (playerSprite->RotateLevelRight == true) {
+				tile->RotateObjectRight = true;
+				playerSprite->RotateLevelRight = false;
+				i = 0;
+			}
+			if (playerSprite->RotateLevelLeft == true) {
+				tile->RotateObjectLeft = true;
+				playerSprite->RotateLevelLeft = false;
+				i = 0;
+			}
 		}
+		tile->Update(time);
 		i++;
 }
 

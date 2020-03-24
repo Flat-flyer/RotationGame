@@ -84,11 +84,11 @@ switch (event.type) {
 			MoveState = 4;
 			break;
 		case SDLK_q:
-			MoveState = 8;
+			RotateLevelLeft = true;
 			std::cout << SDL_GetKeyName(event.key.keysym.sym) << " is pressed." << std::endl;
 			break;
 		case SDLK_e:
-			MoveState = 9;
+			RotateLevelRight = true;
 			std::cout << SDL_GetKeyName(event.key.keysym.sym) << " is pressed." << std::endl;
 		default:
 			break;
