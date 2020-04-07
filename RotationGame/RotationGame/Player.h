@@ -18,6 +18,7 @@ public:
 	void HandleEvents(const SDL_Event& event);
 	bool RotateLevelLeft;
 	bool RotateLevelRight;
+	void CheckCollisions(Tile tile_);
 	
 	float degrees1;
 	SDL_Surface* thePlayer;

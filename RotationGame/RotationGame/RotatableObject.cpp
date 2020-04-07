@@ -9,7 +9,7 @@ RotatableObject::~RotatableObject()
 {
 }
 
-RotatableObject::RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPoint_, float RotationQuadrant_)
+RotatableObject::RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPoint_, float RotationQuadrant_, int width_, int height_)
 {
 	pos.x = pos_.x;
 	pos.y = pos_.y;
@@ -28,6 +28,8 @@ RotatableObject::RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPo
 	PivotPoint.z = pivotPoint_.z;
 
 	RotationQuadrant = RotationQuadrant_;
+	width = width_;
+	height = height_;
 }
 
 bool RotatableObject::OnCreate()

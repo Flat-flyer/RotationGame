@@ -121,3 +121,25 @@ switch (event.type) {
 			break;
 	}
 }
+
+void Player::CheckCollisions(Tile tile_)
+{
+	if (pos.x < tile_.GetPosition().x + tile_.width && pos.x > tile_.GetPosition().x - tile_.width && pos.y < tile_.GetPosition().y + tile_.height && pos.y > tile_.GetPosition().y - tile_.height) {
+		if (pos.y + 2 > tile_.GetPosition().y + tile_.height) {
+			vel.y = 0;
+		}
+		if (pos.y - 2 < tile_.GetPosition().y - tile_.height) {
+			vel.y = vel.y * -1;
+			pos.y = pos.y - 1;
+		}
+		if (pos.x + 2 > tile_.GetPosition().x + tile_.height) {
+			vel.x = vel.x * -1;
+			pos.x = pos.x + 1;
+		}
+		if (pos.x - 2 < tile_.GetPosition().x - tile_.height) {
+			vel.x = vel.x * -1;
+			pos.x = pos.x - 1;
+		}
+
+	}
+}

@@ -24,8 +24,11 @@ bool Scene0::OnCreate() {
 	playerSprite->thePlayer = IMG_Load("test.png");
 	
 
-	tile = new Tile(Vec3(15.0f, 90.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(100.0f, 50.0f, 0.0f), 1.0f);			// adding Map to OnCreate with position
+	tile = new Tile(Vec3(15.0f, 90.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(100.0f, 50.0f, 0.0f), 1.0f, 100, 100);			// adding Map to OnCreate with position
 	tile->image = SDL_LoadBMP("mapone.bmp");
+
+	tile2 = new Tile(Vec3(15.0f, 90.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(100.0f, 50.0f, 0.0f), 1.0f, 20, 20);
+	tile2->image = IMG_Load("test.png");
 
 	if (tile->image == nullptr) {
 		return false;
@@ -56,19 +59,27 @@ void Scene0::Update(const float time) {
 			}
 		}
 		tile->Update(time);
+		playerSprite->CheckCollisions(*tile2);
 		i++;
 }
 
 void Scene0::Render() {
 	
 	Vec3 screenCoords = projection * tile->GetPosition();
+	Vec3 screenCoords3 = projection * tile2->GetPosition();
 	
 	SDL_Rect rect;
+	SDL_Rect rect2;
 	//SDL_Rect rect2;
 	rect.h = tile->image->h;
 	rect.w = tile->image->w;
 	rect.x = screenCoords.x; 
 	rect.y = screenCoords.y; 
+
+	rect2.h = tile2->image->h;
+	rect2.w = tile2->image->w;
+	rect2.x = screenCoords3.x;
+	rect2.y = screenCoords3.y;
 	if (clip != NULL)
 	{
 		rect.w = clip->w;
@@ -84,8 +95,8 @@ void Scene0::Render() {
 	SDL_Surface* screenSurface = SDL_GetWindowSurface(window);
 
 	SDL_FillRect(screenSurface, nullptr, SDL_MapRGB(screenSurface->format, 255.0f,255.0f,255.0f));		//changed color to white from blue.
-
 	SDL_BlitSurface(tile->image, nullptr, screenSurface, &rect);
+	SDL_BlitSurface(tile2->image, nullptr, screenSurface, &rect2);
 	SDL_RenderCopyEx(mRender, mTexture, clip, &rect,playerSprite->degrees1 , NULL, SDL_FLIP_NONE);
 	SDL_BlitSurface(playerSprite->thePlayer, NULL, screenSurface, &spritePosition);
 	SDL_RenderPresent(mRender);

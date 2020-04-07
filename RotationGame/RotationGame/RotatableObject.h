@@ -19,7 +19,7 @@ public:
 	int width;
 	RotatableObject();
 	~RotatableObject();
-	RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPoint_, float RotationQuadrant_);
+	RotatableObject(Vec3 pos_, Vec3 vel_, Vec3 accel_, Vec3 pivotPoint_, float RotationQuadrant_, int width_, int height_);
 	bool OnCreate();
 	void OnDestroy();
 	void Update(const float deltaTime);

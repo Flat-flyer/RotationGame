@@ -16,6 +16,7 @@ private:
 	int i = 0;
 	SDL_Event Event;
 	Tile* tile;
+	Tile* tile2;
 	//Player player;
 	class Player* playerSprite;
 
