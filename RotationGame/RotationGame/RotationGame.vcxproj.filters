@@ -45,6 +45,9 @@
     <ClCompile Include="Tile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RotatableObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameManager.h">
@@ -86,12 +89,21 @@
     <ClInclude Include="Tile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="RotatableObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="player.bmp">
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="test.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="mapone.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="maptwo.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

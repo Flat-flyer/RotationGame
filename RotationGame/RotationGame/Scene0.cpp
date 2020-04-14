@@ -24,8 +24,8 @@ bool Scene0::OnCreate() {
 	playerSprite->thePlayer = IMG_Load("test.png");
 	
 
-	tile = new Tile(Vec3(15.0f, 90.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(100.0f, 50.0f, 0.0f), 1.0f, 100, 100);			// adding Map to OnCreate with position
-	tile->image = SDL_LoadBMP("mapone.bmp");
+	tile = new Tile(Vec3(-45.0f, 80.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(100.0f, 50.0f, 0.0f), 1.0f, 100, 100);			// adding Map to OnCreate with position
+	tile->image = IMG_Load("maptwo.png");
 
 	tile2 = new Tile(Vec3(15.0f, 90.0f, 0.0f), Vec3(0.0f, 0.0f, 0.0f), Vec3(100.0f, 50.0f, 0.0f), 1.0f, 20, 20);
 	tile2->image = IMG_Load("test.png");

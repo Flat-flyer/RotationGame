@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="RotatableObject.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="MMath.cpp" />
     <ClCompile Include="Physics.cpp" />
@@ -141,6 +142,7 @@
   <ItemGroup>
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="RotatableObject.h" />
     <ClInclude Include="Tile.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="MMath.h" />
@@ -154,6 +156,8 @@
     <ClInclude Include="Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="mapone.bmp" />
+    <Image Include="maptwo.png" />
     <Image Include="player.bmp" />
     <Image Include="test.png" />
   </ItemGroup>
